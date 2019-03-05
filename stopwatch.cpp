@@ -13,9 +13,12 @@
 #include "stopwatch.h"
 #include <time.h>
 
+static clock_t start;
+static clock_t end;
+
 void start_stopwatch()
 {
-
+  start=clock();
 }
 
 void stop_stopwatch()
@@ -25,5 +28,6 @@ void stop_stopwatch()
 
 float elapsed_time()
 {
-  return 0;
+  end=clock();
+  return (float)(end-start)/CLOCKS_PER_SEC;
 }
